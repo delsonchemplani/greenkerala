@@ -1,6 +1,6 @@
 'use strict';
  
-angular.module('myApp.login', ['ngRoute','firebase'])
+angular.module('myApp.login', ['ngRoute'])
  
 // Declared route 
 .config(['$routeProvider', function($routeProvider) {
@@ -11,13 +11,15 @@ angular.module('myApp.login', ['ngRoute','firebase'])
 }])
  
 // Home controller
-.controller('LoginCtrl', ['$scope','$firebaseAuth',function($scope,$firebaseAuth) {
+.controller('LoginCtrl', ['$scope',function($scope) {
 
 //var firebaseObj = new Firebase("https://kalahullu-2064b.firebaseio.com");
-var firebaseObj = new Firebase("kalahullu-2064b.firebaseapp.com");
+//var firebaseObj = new Firebase("kalahullu-2064b.firebaseapp.com");
 
 // var loginObj = $firebaseSimpleLogin(firebaseObj);
-   $scope.authObj = $firebaseAuth(firebaseObj);
+  // $scope.authObj = $firebaseAuth(firebaseObj);
+  //var firebase = require("firebase/app");
+
  $scope.SignIn = function(event) {
  	event.preventDefault();  
     var username = $scope.user.email;
@@ -27,7 +29,19 @@ var firebaseObj = new Firebase("kalahullu-2064b.firebaseapp.com");
 
 alert(username);
 alert(password);
-     $scope.authObj.$authWithPassword( {
+
+firebase.auth().signInWithEmailAndPassword(username, password).then(function() {
+  // Sign-in successful.
+   console.log('Authentication success');
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+   console.log('Authentication failure'+errorMessage);
+  // ...
+});
+
+    /* firebaseObj.authWithPassword( {
             email: username,
             password: password
         })
@@ -36,8 +50,8 @@ alert(password);
             console.log('Authentication successful');
         }, function(error) {
             // Failure callback
-            console.log('Authentication failure');
-        });
+            console.log('Authentication failure'+error);
+        });*/
 
 }
 
