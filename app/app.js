@@ -12,9 +12,9 @@ angular.module('myKalahulluApp', [
     });
 
      $routeProvider.when('/', {
-        templateUrl: 'login/login.html',
-        controller: 'LoginCtrl',
-        requireLogin: true
+        templateUrl: 'home/home.html',
+        controller: 'MainCtrl',
+        requireLogin: false
     });
 
     $routeProvider.when('/home', {
@@ -27,6 +27,14 @@ angular.module('myKalahulluApp', [
         templateUrl: 'home/test.html',
         controller: 'MainCtrl',
         requireLogin: false
+    }).when('/demo', {
+        templateUrl: 'home/home.html#demo',
+        controller: 'MainCtrl',
+        requireLogin: false
+    }).when('/myCarousel', {
+        templateUrl: 'home/home.html#myCarousel',
+        controller: 'MainCtrl',
+        requireLogin: false
     });
      $routeProvider.otherwise({
         redirectTo: '/login'
@@ -36,16 +44,17 @@ angular.module('myKalahulluApp', [
 .run(['$rootScope', '$location','$route', 'Auth', function ($rootScope, $location,$route, Auth) {
   Auth.init();
     $rootScope.$on('$routeChangeStart', function (event) {    
-      console.log($route.routes); 
-      console.log($location.path());
+     // console.log($route.routes); 
+     console.log($location.path());
       var i;
       var routeInfo;
+      //routeInfo.requireLogin=false;
      // for(i=0;i<=$route.routes.length;i++){
       for(i in $route.routes){        
-        console.log($route.routes[i]);
+       // console.log($route.routes[i]);
         if($route.routes[i].originalPath==$location.path())
         {
-          console.log('got');
+         // console.log('got');
           routeInfo=$route.routes[i];
           break;
         }
