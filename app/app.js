@@ -22,14 +22,40 @@ angular.module('myKalahulluApp', [
         controller: 'MainCtrl',
         requireLogin: true
     });
+
+     $routeProvider.when('/test', {
+        templateUrl: 'home/test.html',
+        controller: 'MainCtrl',
+        requireLogin: false
+    });
      $routeProvider.otherwise({
         redirectTo: '/login'
     });
 }])
 
-.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
+.run(['$rootScope', '$location','$route', 'Auth', function ($rootScope, $location,$route, Auth) {
   Auth.init();
-    $rootScope.$on('$routeChangeStart', function (event) {      
+    $rootScope.$on('$routeChangeStart', function (event) {    
+      console.log($route.routes); 
+      console.log($location.path());
+      var i;
+      var routeInfo;
+     // for(i=0;i<=$route.routes.length;i++){
+      for(i in $route.routes){        
+        console.log($route.routes[i]);
+        if($route.routes[i].originalPath==$location.path())
+        {
+          console.log('got');
+          routeInfo=$route.routes[i];
+          break;
+        }
+      }
+   // alert($route.current.routes) ; 
+   // alert(routeInfo.requireLogin) ; 
+   if(routeInfo.requireLogin){
+
+  
+
         if (!Auth.isLoggedIn() ) {
             console.log('DENY');
            // event.preventDefault();
@@ -38,10 +64,13 @@ angular.module('myKalahulluApp', [
         }
         else {
             console.log('ALLOW');
-            //redirectTo: '/home'
-            $location.path('/home');
+            redirectTo: '$location.path()'
+            //$location.path('/home');
         }
+
+      }
     });
+
     
     $rootScope.$watch(Auth.isLoggedIn, function (value, oldValue) {
 //alert(value+'and'+oldValue)
