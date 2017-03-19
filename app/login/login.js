@@ -30,11 +30,14 @@
      
     // Auth Logic will be here
 
+   Auth.login(username,password);
+   Auth.setUser(username); 
+  // $location.path('/home');
 
-firebase.auth().signInWithEmailAndPassword(username, password).then(function() {
+/*firebase.auth().signInWithEmailAndPassword(username, password).then(function() {
   // Sign-in successful.
+  
    console.log('Authentication success');
-   Auth.setUser($scope.user); 
     //redirectTo: '/login'
     //redirectTo: '/home'
    //$location.path('/home');
@@ -46,7 +49,7 @@ firebase.auth().signInWithEmailAndPassword(username, password).then(function() {
   var errorMessage = error.message;
    console.log('Authentication failure'+errorMessage);
   // ...
-});
+});*/
 
     /* firebaseObj.authWithPassword( {
             email: username,
