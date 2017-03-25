@@ -35,6 +35,10 @@ angular.module('myKalahulluApp', [
         templateUrl: 'home/home.html#myCarousel',
         controller: 'MainCtrl',
         requireLogin: false
+    }).when('/admin', {
+        templateUrl: 'admin/admin.htm',
+        controller: 'AdminCtrl',
+        requireLogin: false
     });
      $routeProvider.otherwise({
         redirectTo: '/login'

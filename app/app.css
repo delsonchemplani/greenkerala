@@ -35,3 +35,9 @@
 .person:hover {
     border-color: #f1f1f1;
 }
+
+footer {
+  /*  background-color: #2d2d30;*/
+    color: #f5f5f5;
+    padding: 32px;
+}

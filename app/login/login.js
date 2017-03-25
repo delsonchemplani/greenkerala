@@ -32,6 +32,26 @@
 
    Auth.login(username,password);
    Auth.setUser(username); 
+
+   var item={
+    "name":"Hirvy White Shirt",
+    "description":"This simplistic white shirt from Hirvy fashions is a fine piece with a contemporary trendy colour. Crafted from pure cotton, style yours with jeans or chinos for a laid-back look.",
+    "sizes":[38,40],
+    "price":340.00,
+    "Sleeves" : "Full Sleeves",
+    "Material" : "100% Cotton",
+   "Fit" : "Slim Fit",
+  "Pattern" : "Solid",
+  "Occasion" : "Casual",
+  "Color" : "White"
+
+
+   }
+   var itemId=123;
+  // var newItems = new Firebase('https://kalahullu-2064b.firebaseio.com/items');
+  firebase.database().ref('items/' + itemId).set(item);
+   //newItems.push(item);
+   console.log('inserted');
   // $location.path('/home');
 
 /*firebase.auth().signInWithEmailAndPassword(username, password).then(function() {
