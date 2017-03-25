@@ -6,35 +6,35 @@
   <div class="form-group row">
   <label for="itemId" class="col-2 col-form-label">Item Id</label>
     <div class="col-10">
-      <input class="form-control" type="text" value="Item code" id="itemId">  
+      <input class="form-control" type="text" value="Item code" ng-model="item.itemCode" id="itemId">  
     </div>
   </div>
 
   <div class="form-group row">
    <label for="itemName" class="col-2 col-form-label">Item name</label>
     <div class="col-10">
-    <input class="form-control" type="text" value="Item name" id="itemName">
+    <input class="form-control" type="text" value="Item name" ng-model="item.name" id="itemName">
     </div>
   </div>
 
   <div class="form-group row">
    <label for="itemDesc" class="col-2 col-form-label">Item Description</label>
     <div class="col-10">
-    <input class="form-control" type="text" value="Item description" id="itemDesc">
+    <input class="form-control" type="text" value="Item description" ng-model="item.desc" id="itemDesc">
     </div>
   </div>
 
    <div class="form-group row">
    <label for="price" class="col-2 col-form-label">Price</label>
     <div class="col-10">
-    <input class="form-control" type="price" value="price" id="price">
+    <input class="form-control" type="price" value="price" id="price" ng-model="item.price">
     </div>
   </div>
 
 <div class="form-group row">
     <label for="itemSizes">Select item sizes</label>
-    <select multiple class="form-control" id="itemSizes">
-      <option>36</option>
+    <select multiple class="form-control" id="itemSizes" ng-model="item.sizes">
+      <option>36</option> 
       <option>38</option>
       <option>40</option>
       <option>42</option>
@@ -46,12 +46,15 @@
 <label for="itemImage" class="col-2 col-form-label">Main image</label>
     <div class="col-10">
   <label class="custom-file">
-   <input type="file" id="file" class="custom-file-input">
+   <input type="file" id="file" class="custom-file-input" ng-model="item.image">
    <span class="custom-file-control"></span>
   </label>
 </div>
 
   </div>
+
+   <button class="btn btn-lg btn-primary btn-block" ng-click="pushItem($event)" type="submit">Add Item 
+   </button>
 
 
 
