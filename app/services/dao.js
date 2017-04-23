@@ -24,8 +24,26 @@
   }
 
 
+   function getItems() {
+    var deferred = $q.defer();
+    console.log('started');
+
+     var storageItemsRef = firebase.database().ref("items");
+     //var itemsRef=storageItemsRef.child("222");
+        // deferred.resolve(itemsRef);
+     storageItemsRef.on('value', function(snapshot) {
+      deferred.resolve(snapshot.val());
+    });
+           
+
+    return deferred.promise;
+  }
+
+
+
   return{
-		pushFile:pushFile
+		pushFile:pushFile,
+    getItems:getItems
 
   };
 
