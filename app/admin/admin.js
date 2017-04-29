@@ -12,21 +12,9 @@ app.controller('AdminCtrl', ['$scope','FirebaseService',function($scope,Firebase
   $scope.item.images={};
   $scope.files = []; 
 
-  $scope.getItems=function(){
-     var promise=FirebaseService.getItems().then ( function ( result ) {
-      //  $scope.uId = result;
-        console.log('Data retrieved'+result);
-        $scope.items=result;
-    
-  
-          console.log('retrieved');
-     
-    }, function(error){
-        //If an error happened, handle it here
-    });
-  };
+ 
 
-
+//admin@gmail.com admin1234
 
 $scope.pushSwatchImages=function(){
     alert($scope.files.length+" files selected ... Write your Upload Code"); 
