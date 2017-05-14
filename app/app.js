@@ -3,8 +3,9 @@
 angular.module('myKalahulluApp', [
     'ngRoute',
    // 'myApp.login'           // Newly added home module
-]).config(['$routeProvider', function($routeProvider) {
+]).config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider) {
      console.log('DHERE');
+     //alert('hi');
     $routeProvider.when('/login', {
         templateUrl: 'login/login.html',
         controller: 'LoginCtrl',
@@ -20,7 +21,7 @@ angular.module('myKalahulluApp', [
     $routeProvider.when('/home', {
         templateUrl: 'home/home.html',
         controller: 'MainCtrl',
-        requireLogin: true
+        requireLogin: false
     });
 
      $routeProvider.when('/test', {
@@ -31,22 +32,29 @@ angular.module('myKalahulluApp', [
         templateUrl: 'home/home.html#demo',
         controller: 'MainCtrl',
         requireLogin: false
-    }).when('/myCarousel', {
-        templateUrl: 'home/home.html#myCarousel',
-        controller: 'MainCtrl',
+    }).when('/collapseOne', {
+        templateUrl: 'products/products.html#collapseOne',
+        controller: 'ProductCtrl',
         requireLogin: false
     }).when('/products', {
         templateUrl: 'products/products.html',
         controller: 'ProductCtrl',
         requireLogin: false
-    }).when('/admin', {
-        templateUrl: 'admin/admin.htm',
+    }).when('/checkout', {
+        templateUrl: 'chout/checkout.htm',
+        controller: 'AdminCtrl',
+        requireLogin: false
+    }).when('/base/admin', {
+        templateUrl: 'adm/admin.htm',
         controller: 'AdminCtrl',
         requireLogin: false
     });
      $routeProvider.otherwise({
-        redirectTo: '/login'
+        requireLogin: false,
+        redirectTo: '/home'
     });
+
+      $locationProvider.html5Mode(true);
 }])
 
 .run(['$rootScope', '$location','$route', 'Auth', function ($rootScope, $location,$route, Auth) {

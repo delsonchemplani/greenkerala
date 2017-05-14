@@ -4,9 +4,11 @@
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="myKalahulluApp" class="no-js"> <!--<![endif]-->
 <head>
+  <base href="/">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>HirvyFashions</title>
+  <link rel="icon" href="images/icon.jpeg" type="image/png">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
@@ -24,14 +26,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Hirvy</a>
+      <a class="navbar-brand" href="#/home"><span><img src="images/icon.jpeg" class="logo"></span> Hirvi</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#home">NEW ARRIVALS</a></li>
-        <li><a href="#products">CLOTHING</a></li>
-        <li><a href="#tour">ACCESSORIES</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+        <li><a href="/home">NEW ARRIVALS</a></li>
+        <li><a href="/products">CLOTHING</a></li>
+        <li><a href="/base/admin">ACCESSORIES</a></li>
+        <li><a href="contact">CONTACT</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
             <span class="caret"></span>
