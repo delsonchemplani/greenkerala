@@ -1,6 +1,6 @@
  angular.module('myKalahulluApp').factory('FirebaseService', function($q,$window){
 
-  $scope.cart={};
+  //$scope.cart={};
   
  function pushFile(itemId,file) {
     var deferred = $q.defer();

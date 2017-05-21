@@ -37,7 +37,7 @@ angular.module('myKalahulluApp', [
         controller: 'ProductCtrl',
         requireLogin: false
     }).when('/products', {
-        templateUrl: 'products/products.html',
+        templateUrl: 'products/productls.html',
         controller: 'ProductCtrl',
         requireLogin: false
     }).when('/checkout', {
