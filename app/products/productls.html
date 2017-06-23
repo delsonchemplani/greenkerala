@@ -65,9 +65,11 @@
 <!--       <div class="col-md-1 col-sm-8"></div>
  -->      <div class="col-md-12 col-sm-8">
       <h4 class="page-header" >NEW ARRIVALS IN CLOTHING FOR MEN </h4>
+        <!-- <input type="search" ng-model="q" placeholder="filter items..." aria-label="filter items" /> -->
     </div>
     	<!-- BEGIN PRODUCTS -->
-  		<div class="col-md-3 col-sm-6" ng-repeat="item in items" >
+     
+  		<div class="col-md-3 col-sm-6" ng-repeat="item in items| toArray |filter:q as results" >
     		<span class="thumbnail">
       			<img ng-src="{{item.images[0]}}" alt="..." width="203" >
       			<h4>{{item.name}}</h4>

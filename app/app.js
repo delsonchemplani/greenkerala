@@ -1,7 +1,7 @@
 'use strict';
  
 angular.module('myKalahulluApp', [
-    'ngRoute',
+    'ngRoute','angular-toArrayFilter'
    // 'myApp.login'           // Newly added home module
 ]).config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider) {
      console.log('DHERE');
@@ -37,7 +37,7 @@ angular.module('myKalahulluApp', [
         controller: 'ProductCtrl',
         requireLogin: false
     }).when('/products', {
-        templateUrl: 'products/productls.html',
+        templateUrl: 'products/hirvyproducts.html',
         controller: 'ProductCtrl',
         requireLogin: false
     }).when('/checkout', {
@@ -49,9 +49,10 @@ angular.module('myKalahulluApp', [
         controller: 'AdminCtrl',
         requireLogin: false
     });
+    
      $routeProvider.otherwise({
         requireLogin: false,
-        redirectTo: '/home'
+        redirectTo: '/products'
     });
 
       $locationProvider.html5Mode(true);
