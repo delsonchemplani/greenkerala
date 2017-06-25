@@ -60,6 +60,7 @@ angular.module('myKalahulluApp', [
 
 .run(['$rootScope', '$location','$route', 'Auth', function ($rootScope, $location,$route, Auth) {
   Auth.init();
+   Auth.login("admin@gmail.com","admin1234");
     $rootScope.$on('$routeChangeStart', function (event) {    
      // console.log($route.routes); 
      console.log($location.path());

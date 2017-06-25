@@ -8,114 +8,123 @@
 <div class="container" ng-init="getItems()">
 			<div class="row">
 				<div class="col-sm-3">
-					<div class="left-sidebar">
+
+ <div class="list-group panel">
+    <a class="list-group-item list-group-item strong text-center" style="background: white;" data-toggle="collapse"> FILTER BY</a>
+    <a href="#cat1" class="list-group-item list-group-item-success strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-photo"></i> Category <i class="fa fa-caret-down"></i></a>
+    <div class="collapse list-group-submenu" id="cat1">
+      <a href="#" class="list-group-item"><input type="checkbox"> Shirts</a>
+
+    </div> 
+    <a href="#occa" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-book"></i> Occasion <i class="fa fa-caret-down"></i></a>
+    <div class="collapse list-group-submenu" id="occa">
+       <li class="list-group-item" ng-repeat="chk in occasionCheckBoxes"><input type="checkbox" ng-model="chk.val" id="chk.label" />
+            <label>{{chk.label}}</label></li>
+ 
+    </div>
+    <a href="#price" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-language"></i> Price <i class="fa fa-caret-down"></i></a>
+    <div class="collapse list-group-submenu" id="price">
+      <a href="#" class="list-group-item"><input type="checkbox">  1000 and below</a>
+      <a href="#" class="list-group-item"><input type="checkbox"> 1000-1499 </a>
+      <a href="#" class="list-group-item"><input type="checkbox">  above 1499</a>
+        <!-- <a href="#SubSubMenu1" class="list-group-item strong" data-toggle="collapse" data-parent="#SubSubMenu1"> 3 more <i class="fa fa-caret-down"></i></a>
+        <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
+          <a href="#" class="list-group-item"><input type="checkbox">  Russian</a>
+          <a href="#" class="list-group-item"><input type="checkbox">  Urdu</a>
+          <a href="#" class="list-group-item"><input type="checkbox">  Vietnamese</a>
+        </div> -->
+    </div>
+    <a href="#sizes" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-cubes"></i>  Sizes <i class="fa fa-caret-down"></i></a>
+    <div class="collapse list-group-submenu" id="sizes">
+
+      <li class="list-group-item" ng-repeat="chk in sizeCheckBoxes"><input type="checkbox" ng-model="chk.val" id="chk.label" />
+            <label>{{chk.label}}</label></li>
+     
+    </div>
+      <a class="list-group-item list-group-item strong text-center" style=" color: white;" data-toggle="collapse"><button type="button" class="btn btn-success btn-sm" ng-click="searchForItems()">SEARCH</button> </a>
+  </div>
+
+					<!--<div class="left-sidebar">
 						<h2>Category</h2>
-						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Sportswear
-										</a>
-									</h4>
-								</div>
-								<div id="sportswear" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Nike </a></li>
-											<li><a href="#">Under Armour </a></li>
-											<li><a href="#">Adidas </a></li>
-											<li><a href="#">Puma</a></li>
-											<li><a href="#">ASICS </a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Mens
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Fendi</a></li>
-											<li><a href="#">Guess</a></li>
-											<li><a href="#">Valentino</a></li>
-											<li><a href="#">Dior</a></li>
-											<li><a href="#">Versace</a></li>
-											<li><a href="#">Armani</a></li>
-											<li><a href="#">Prada</a></li>
-											<li><a href="#">Dolce and Gabbana</a></li>
-											<li><a href="#">Chanel</a></li>
-											<li><a href="#">Gucci</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+						<div class="panel-group category-products" id="accordian">
 							
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#womens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											Womens
-										</a>
-									</h4>
-								</div>
-								<div id="womens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="#">Fendi</a></li>
-											<li><a href="#">Guess</a></li>
-											<li><a href="#">Valentino</a></li>
-											<li><a href="#">Dior</a></li>
-											<li><a href="#">Versace</a></li>
-										</ul>
-									</div>
+									<h4 class="panel-title"><a href="#">Shirts(176)</a></h4>
 								</div>
 							</div>
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Kids</a></h4>
+									<h4 class="panel-title"><a href="#">T-Shirts(50)</a></h4>
 								</div>
 							</div>
-							<div class="panel panel-default">
+								<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Fashion</a></h4>
+									<h4 class="panel-title"><a href="#">Jeans(0)</a></h4>
 								</div>
 							</div>
 							
 							
-						</div><!--/category-products-->
-					
-						<div class="brands_products"><!--brands_products-->
-							<h2>Brands</h2>
+						</div>
+ --><!-- 
+							<div class="brands_products">
+							<h2>Occasion</h2>
 							<div class="brands-name">
 								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-									<li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-									<li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-									<li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
+								
 									
+									     <li class="list-group-item"><input type="checkbox">  Casual</li>
+      									<li  class="list-group-item"><input type="checkbox">  Formal</li>
+      									
 								</ul>
 							</div>
-						</div><!--/brands_products-->
+						</div> -->
+					
+					<!-- 	<div class="brands_products">
+							<h2>Sizes</h2>
+							<div class="brands-name">
+								<ul class="nav nav-pills nav-stacked">
+								
+									
+									     <li class="list-group-item"><input type="checkbox">  36</li>
+      									<li  class="list-group-item"><input type="checkbox">  38</li>
+      									<li  class="list-group-item"><input type="checkbox">  40</li>
+     									 <li  class="list-group-item"><input type="checkbox">  42</li>
+     									 <li  class="list-group-item"><input type="checkbox">  44</li>
+     									 <li  class="list-group-item"><input type="checkbox">  46</li>
+								</ul>
+							</div>
+						</div> 
 						
 			
 					
-					</div>
+					</div> -->
 				</div>
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"  ><!--features_items-->
 						<h2 class="title text-center">New Arrivals in Men's section</h2>
-						<div class="col-sm-4" ng-repeat="item in items|toArray | startFrom:currentPage*pageSize | limitTo:pageSize">
+						<div ng-show="allResult" class="col-sm-4" ng-repeat="item in items|toArray | startFrom:currentPage*pageSize | limitTo:pageSize">
+					
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<img ng-src="{{item.images[0]}}" alt="" />
+											<h2>{{item.price}}</h2>
+											<p>{{item.name}}</p>
+											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>										
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div ng-show="filterResult" class="col-sm-4" ng-repeat="item in filterItems|toArray | startFrom:currentPage*pageSize | limitTo:pageSize">
 					
 							<div class="product-image-wrapper">
 								<div class="single-products">

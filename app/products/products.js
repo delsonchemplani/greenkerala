@@ -12,16 +12,78 @@
 
  
 // Home controller
-app.controller('ProductCtrl', ['$scope','FirebaseService','Auth',function($scope,FirebaseService,Auth) {
+app.controller('ProductCtrl', ['$scope', '$filter','FirebaseService','Auth',function($scope, $filter,FirebaseService,Auth) {
 $scope.items=[];
+$scope.filterItems=[];
  $scope.currentPage = 0;
     $scope.pageSize = 3;
     //$scope.data = [];
     $scope.numberOfPages=0
+
+
+$scope.sizeCheckBoxes = [
+      {label: "36", val: false},
+      {label: "38", val: false},
+      {label: "40", val: false},
+      {label: "42", val: false},
+      {label: "44", val: false},
+      {label: "46", val: false},
+    ];
+
+$scope.occasionCheckBoxes = [
+      {label: "Formal", val: false},
+      {label: "Casual", val: false}      
+    ];
+
+    $scope.$watch('sizeCheckBoxes', function (newObj, oldObj) {
+        $scope.sizesSelected=[];
+         var checked = $filter('filter')(newObj, {'val': true}); //checked list
+        var unchecked = $filter('filter')(newObj, {'val': false}); //unchecked list
+        console.log(checked);
+        console.log(unchecked);
+         for (var i=0; i< checked.length; i++) {
+            $scope.sizesSelected.push(checked[i].label); //adding checked labels to type array 
+        }
+        console.log($scope.sizesSelected);
+        }, true);
+
+
+    $scope.$watch('occasionCheckBoxes', function (newObj, oldObj) {
+        $scope.occasionSelected=[];
+         var checked = $filter('filter')(newObj, {'val': true}); //checked list
+        var unchecked = $filter('filter')(newObj, {'val': false}); //unchecked list
+        console.log(checked);
+        console.log(unchecked);
+         for (var i=0; i< checked.length; i++) {
+            $scope.occasionSelected.push(checked[i].label); //adding checked labels to type array 
+        }
+        console.log($scope.occasionSelected);
+        }, true);
+
+
+
+    $scope.searchForItems=function(){
+            console.log('here');
+             console.log($scope.occasionSelected);
+               console.log($scope.sizesSelected);
+              var totalItems= $filter('toArray')($scope.items);
+
+         for (var i=0; i< totalItems.length; i++) {
+            $scope.filterItems.push(totalItems[i]);
+             //adding checked labels to type array 
+        }
+        $scope.numberOfPages=Math.ceil(totalItems.length/$scope.pageSize);
+            $scope.allResult=false;
+    $scope.filterResult=true;
+        console.log(totalItems.length);
+    };
+
+
  $scope.getItems=function(){
  	//logging in 
  	console.log('here');
- 	 Auth.login("admin@gmail.com","admin1234");
+ 	$scope.allResult=true;
+    $scope.filterResult=false;
      var promise=FirebaseService.getItems().then ( function ( result ) {
       //  $scope.uId = result;
         console.log('Data retrieved'+result);
@@ -32,8 +94,8 @@ $scope.items=[];
          // console.log('retrieved'+$scope.numberOfPages);
      /*	if(!$scope.$$phase) {
      	 $scope.$apply(function () {*/
-            var totalItemCount=7
-             $scope.numberOfPages=Math.ceil(totalItemCount/$scope.pageSize);
+             var totalItems= $filter('toArray')($scope.items);
+             $scope.numberOfPages=Math.ceil(totalItems.length/$scope.pageSize);
               //alert(result.length);
              //alert($scope.numberOfPages);
 if(!$scope.$$phase) {

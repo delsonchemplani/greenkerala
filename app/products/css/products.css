@@ -38,12 +38,14 @@
 	.list-group.panel > .list-group-item {
 /*  border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;*/
-  width: 180px;
+  /*width: 180px;*/
+  width:100%;
   background: white;
 /*  color: #666;*/
 }
 .list-group-submenu {
-  width: 180px;
-}5
+ /* width: 180px;*/
+ width:100%;
+}
 
 .strong { font-weight: bold; }
