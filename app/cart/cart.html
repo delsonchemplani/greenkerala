@@ -34,36 +34,36 @@
 						<tr class="cart_menu">
 							<td class="image">Item</td>
 							<td class="description">Description</td>
-							<td class="price">Price</td>
+							<td class="prices">Price</td>
 							<td class="quantity">Quantity</td>
 							<td class="total">Total</td>
 							<td></td>
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="cartItem in cart">
+						<tr ng-repeat="cartItem in orderItems">
 							<td class="cart_product">
-								<a href=""><img ng-src="{{cartItem.images[0]}}" alt="" height="50" width="40"></a>
+								<a href=""><img ng-src="{{cartItem.image}}" alt="" height="50" width="40"></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{cartItem.desc}}</a></h4>
-								<p>Web ID: {{cartItem.itemCode}}</p>
+								<p>Web ID: {{cartItem.itemId}}</p>
 							</td>
 							<td class="cart_price">
 								<p>{{cartItem.price}}</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
+									<a class="cart_quantity_up" href="" ng-click="incrementQuantity(cartItem)"> + </a>
+									<input ng-model="cartItem.itemQuantity" class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href="" ng-click="decrementQuantity(cartItem)"> - </a>
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">{{cartItem.price}}</p>
+								<p class="cart_total_price" ng-bind="cartItem.price*cartItem.itemQuantity"></p>
 							</td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" href="" ng-click="deletetCartItem(cartItem)"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 
@@ -139,10 +139,10 @@
 				<div class="col-sm-6">
 					<div class="total_area">
 						<ul>
-							<li>Cart Sub Total <span>$59</span></li>
-							<li>Eco Tax <span>$2</span></li>
+							<li>Cart Sub Total <span ng-bind="totalPrice"></span></li>
+							<li>Eco Tax <span>0</span></li>
 							<li>Shipping Cost <span>Free</span></li>
-							<li>Total <span>$61</span></li>
+							<li>Total <span ng-bind="totalPrice"></span></li>
 						</ul>
 							<a class="btn btn-default update" href="">Update</a>
 							<a class="btn btn-default check_out" href="">Check Out</a>

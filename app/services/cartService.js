@@ -9,8 +9,8 @@ angular.module('myKalahulluApp')
             addCartItem:function (cartItem) {
                 cart.push(cartItem);
             },
-            deleteNote:function (id) {
-                var oldCart = data;
+            deleteCartItem:function (id) {
+                var oldCart = cart;
                 cart = [];
                 angular.forEach(oldCart, function (oldCartItem) {
                      if (oldCartItem.id !== id) cart.push(oldCartItem);
