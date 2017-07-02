@@ -103,7 +103,7 @@ angular.module('myKalahulluApp', [
     });
 
     
-    $rootScope.$watch(Auth.isLoggedIn, function (value, oldValue) {
+   /* $rootScope.$watch(Auth.isLoggedIn, function (value, oldValue) {
 //alert(value+'and'+oldValue)
     if(!value && oldValue) {
       console.log("Disconnect");
@@ -111,12 +111,12 @@ angular.module('myKalahulluApp', [
     }
 
     if(value) {
-      console.log("Connect");
+      console.log("Connect"+value);
        $location.path('/home');
       //Do something when the user is connected
     }
 
-  }, true);
+  }, true);*/
 
 }])
 ;
