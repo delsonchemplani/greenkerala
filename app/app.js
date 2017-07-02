@@ -42,7 +42,7 @@ angular.module('myKalahulluApp', [
         requireLogin: false
     }).when('/cart', {
         templateUrl: 'cart/cart.html',
-        controller: 'ProductCtrl',
+        controller: 'CartCtrl',
         requireLogin: false
     }).when('/checkout', {
         templateUrl: 'chout/checkout.htm',

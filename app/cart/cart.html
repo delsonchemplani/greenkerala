@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Cart | E-Shopper</title>
+
+
+
+
     <link href="products/theme/bootstrap.min.css" rel="stylesheet">
     <link href="products/theme/font-awesome.min.css" rel="stylesheet">
     <link href="products/theme/prettyPhoto.css" rel="stylesheet">
@@ -13,18 +9,15 @@
     <link href="products/theme/animate.css" rel="stylesheet">
 	<link href="products/theme/main.css" rel="stylesheet">
 	<link href="products/theme/responsive.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
-    <![endif]-->       
+     
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
-</head><!--/head-->
 
-<body>
+
+<div class="container" ng-init="getCartItems()">
 	
 
 	<section id="cart_items">
@@ -50,7 +43,7 @@
 					<tbody>
 						<tr ng-repeat="cartItem in cart">
 							<td class="cart_product">
-								<a href=""><img ng-src="{{cartItem.images[0]}}" alt=""></a>
+								<a href=""><img ng-src="{{cartItem.images[0]}}" alt="" height="50" width="40"></a>
 							</td>
 							<td class="cart_description">
 								<h4><a href="">{{cartItem.desc}}</a></h4>
@@ -168,5 +161,4 @@
 	<script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
-</body>
-</html>
+</div>

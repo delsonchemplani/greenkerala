@@ -12,9 +12,10 @@
 
  
 // Home controller
-app.controller('ProductCtrl', ['$scope', '$filter','FirebaseService','Auth',function($scope, $filter,FirebaseService,Auth) {
+app.controller('ProductCtrl', ['$scope', '$rootScope','$filter','FirebaseService','cartService','Auth',function($scope, $rootScope,$filter,FirebaseService,cartService,Auth) {
 $scope.items=[];
 $scope.cart=[];
+$rootScope.test="121"
 $scope.filterItems=[];
  $scope.currentPage = 0;
     $scope.pageSize = 3;
@@ -23,8 +24,9 @@ $scope.filterItems=[];
 
 $scope.addToCart=function(item){
             console.log('here');
-            alert(item.itemCode);
-            $scope.cart.push(item);
+           // alert(item.itemCode);
+            cartService.addCartItem(item);
+    
     };
 
 $scope.sizeCheckBoxes = [
@@ -128,23 +130,6 @@ $scope.$watch( '$scope.numberOfPages',function(newValue, oldValue){
 	console.log(oldValue);
 	}
 );
- // function ProductCtrl($scope) {
-   
-    /*$scope.numberOfPages=function(){
-    	
-    	//alert($scope.items.length);
-            
-                  
-    }*/
-   /* for (var i=0; i<45; i++) {
-        $scope.data.push("Item "+i);
-    }*/
-//
-/*app.filter('startFrom', function() {
-    return function(input, start) {
-        start = +start; //parse to int
-        return input.slice(start);
-    }
-});*/
+
 
 }]);
