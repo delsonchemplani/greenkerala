@@ -14,12 +14,18 @@
 // Home controller
 app.controller('ProductCtrl', ['$scope', '$filter','FirebaseService','Auth',function($scope, $filter,FirebaseService,Auth) {
 $scope.items=[];
+$scope.cart=[];
 $scope.filterItems=[];
  $scope.currentPage = 0;
     $scope.pageSize = 3;
     //$scope.data = [];
     $scope.numberOfPages=0
 
+$scope.addToCart=function(item){
+            console.log('here');
+            alert(item.itemCode);
+            $scope.cart.push(item);
+    };
 
 $scope.sizeCheckBoxes = [
       {label: "36", val: false},

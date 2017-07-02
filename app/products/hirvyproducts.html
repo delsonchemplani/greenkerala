@@ -27,12 +27,7 @@
       <a href="#" class="list-group-item"><input type="checkbox">  1000 and below</a>
       <a href="#" class="list-group-item"><input type="checkbox"> 1000-1499 </a>
       <a href="#" class="list-group-item"><input type="checkbox">  above 1499</a>
-        <!-- <a href="#SubSubMenu1" class="list-group-item strong" data-toggle="collapse" data-parent="#SubSubMenu1"> 3 more <i class="fa fa-caret-down"></i></a>
-        <div class="collapse list-group-submenu list-group-submenu-1" id="SubSubMenu1">
-          <a href="#" class="list-group-item"><input type="checkbox">  Russian</a>
-          <a href="#" class="list-group-item"><input type="checkbox">  Urdu</a>
-          <a href="#" class="list-group-item"><input type="checkbox">  Vietnamese</a>
-        </div> -->
+      
     </div>
     <a href="#sizes" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-cubes"></i>  Sizes <i class="fa fa-caret-down"></i></a>
     <div class="collapse list-group-submenu" id="sizes">
@@ -44,61 +39,7 @@
       <a class="list-group-item list-group-item strong text-center" style=" color: white;" data-toggle="collapse"><button type="button" class="btn btn-success btn-sm" ng-click="searchForItems()">SEARCH</button> </a>
   </div>
 
-					<!--<div class="left-sidebar">
-						<h2>Category</h2>
-						<div class="panel-group category-products" id="accordian">
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Shirts(176)</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">T-Shirts(50)</a></h4>
-								</div>
-							</div>
-								<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">Jeans(0)</a></h4>
-								</div>
-							</div>
-							
-							
-						</div>
- --><!-- 
-							<div class="brands_products">
-							<h2>Occasion</h2>
-							<div class="brands-name">
-								<ul class="nav nav-pills nav-stacked">
-								
-									
-									     <li class="list-group-item"><input type="checkbox">  Casual</li>
-      									<li  class="list-group-item"><input type="checkbox">  Formal</li>
-      									
-								</ul>
-							</div>
-						</div> -->
-					
-					<!-- 	<div class="brands_products">
-							<h2>Sizes</h2>
-							<div class="brands-name">
-								<ul class="nav nav-pills nav-stacked">
-								
-									
-									     <li class="list-group-item"><input type="checkbox">  36</li>
-      									<li  class="list-group-item"><input type="checkbox">  38</li>
-      									<li  class="list-group-item"><input type="checkbox">  40</li>
-     									 <li  class="list-group-item"><input type="checkbox">  42</li>
-     									 <li  class="list-group-item"><input type="checkbox">  44</li>
-     									 <li  class="list-group-item"><input type="checkbox">  46</li>
-								</ul>
-							</div>
-						</div> 
-						
-			
-					
-					</div> -->
+		
 				</div>
 				
 				<div class="col-sm-9 padding-right">
@@ -112,7 +53,7 @@
 											<img ng-src="{{item.images[0]}}" alt="" />
 											<h2>{{item.price}}</h2>
 											<p>{{item.name}}</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											<a href="#" class="btn btn-default add-to-cart" ng-click="addToCart(item)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>										
 								</div>
 								<div class="choose">

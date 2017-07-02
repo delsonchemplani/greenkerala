@@ -40,6 +40,10 @@ angular.module('myKalahulluApp', [
         templateUrl: 'products/hirvyproducts.html',
         controller: 'ProductCtrl',
         requireLogin: false
+    }).when('/cart', {
+        templateUrl: 'cart/cart.html',
+        controller: 'ProductCtrl',
+        requireLogin: false
     }).when('/checkout', {
         templateUrl: 'chout/checkout.htm',
         controller: 'AdminCtrl',
