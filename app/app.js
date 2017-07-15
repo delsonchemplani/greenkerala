@@ -45,8 +45,8 @@ angular.module('myKalahulluApp', [
         controller: 'CartCtrl',
         requireLogin: false
     }).when('/checkout', {
-        templateUrl: 'chout/checkout.htm',
-        controller: 'AdminCtrl',
+        templateUrl: 'chout/checkout.html',
+        controller: 'CartCtrl',
         requireLogin: false
     }).when('/base/admin', {
         templateUrl: 'adm/admin.htm',

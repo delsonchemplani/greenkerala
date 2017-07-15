@@ -1,0 +1,175 @@
+     <div class="container"> 
+   
+
+    <link href="products/theme/font-awesome.min.css" rel="stylesheet">
+    <link href="products/theme/prettyPhoto.css" rel="stylesheet">
+    <link href="products/theme/price-range.css" rel="stylesheet">
+    <link href="products/theme/animate.css" rel="stylesheet">
+	<link href="products/theme/main.css" rel="stylesheet">
+	<link href="products/theme/responsive.css" rel="stylesheet">
+
+
+
+
+	<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="#">Home</a></li>
+				  <li class="active">Check out</li>
+				</ol>
+			</div><!--/breadcrums-->
+
+			<div class="step-one">
+				<h2 class="heading">Step1</h2>
+			</div>
+			<div class="checkout-options">
+				<h3>New User</h3>
+				<p>Checkout options</p>
+				<ul class="nav">
+					<li>
+						<label><input type="checkbox"> Register Account</label>
+					</li>
+					<li>
+						<label><input type="checkbox"> Guest Checkout</label>
+					</li>
+					<li>
+						<a href=""><i class="fa fa-times"></i>Cancel</a>
+					</li>
+				</ul>
+			</div><!--/checkout-options-->
+
+			<div class="register-req">
+				<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
+			</div><!--/register-req-->
+
+			<div class="shopper-informations">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="shopper-info">
+							<p>Shopper Information</p>
+							<form>
+								<input type="text" placeholder="Display Name">
+								<input type="text" placeholder="User Name">
+								<input type="password" placeholder="Password">
+								<input type="password" placeholder="Confirm password">
+							</form>
+							<a class="btn btn-primary" href="">Get Quotes</a>
+							<a class="btn btn-primary" href="">Continue</a>
+						</div>
+					</div>
+					<div class="col-sm-5 clearfix">
+						<div class="bill-to">
+							<p>Bill To</p>
+							<div class="form-one">
+								<form>
+									<input type="text" placeholder="Full Name *" required>
+									<input type="email" placeholder="Email*" required>					
+									<input type="text" placeholder="Address *" required>
+									<input type="text" placeholder="Zip / Postal Code *" required>				
+									<input type="text" placeholder="City">							
+									<input type="text" placeholder="State">
+									<input type="number" placeholder="Mobile Phone *" required>
+								</form>
+							</div>						
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="order-message">
+							<p>Shipping Order</p>
+							<textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
+							<label><input type="checkbox"> Shipping to bill address</label>
+						</div>	
+					</div>					
+				</div>
+			</div>
+			<div class="review-payment">
+				<h2>Review & Payment</h2>
+			</div>
+
+			<div class="table-responsive cart_info" ng-init="getCartItems()">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">Item</td>
+							<td class="description"></td>
+							<td class="prices">Price</td>
+							<td class="quantity">Quantity</td>
+							<td class="total">Total</td>
+							<td></td>
+						</tr>
+					</thead>
+						<tbody>
+						<tr ng-repeat="cartItem in orderItems">
+							<td class="cart_product">
+								<a href=""><img ng-src="{{cartItem.image}}" alt="" height="50" width="40"></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">{{cartItem.desc}}</a></h4>
+								<p>Web ID: {{cartItem.itemId}}</p>
+							</td>
+							<td class="cart_price">
+								<p>{{cartItem.price}}</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<a class="cart_quantity_up" href="" ng-click="incrementQuantity(cartItem)"> + </a>
+									<input ng-model="cartItem.itemQuantity" class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+									<a class="cart_quantity_down" href="" ng-click="decrementQuantity(cartItem)"> - </a>
+								</div>
+							</td>
+							<td class="cart_total">
+								<p class="cart_total_price" ng-bind="cartItem.price*cartItem.itemQuantity"></p>
+							</td>
+							<td class="cart_delete">
+								<a class="cart_quantity_delete" href="" ng-click="deletetCartItem(cartItem)"><i class="fa fa-times"></i></a>
+							</td>
+						</tr>
+
+					
+					
+					</tbody>
+				</table>
+			</div>
+				<div class="col-sm-6">
+					<div class="total_area">
+						<ul>
+							<li>Cart Sub Total <span ng-bind="totalPrice"></span></li>
+							<li>Eco Tax <span>0</span></li>
+							<li>Shipping Cost <span>Free</span></li>
+							<li>Total <span ng-bind="totalPrice"></span></li>
+						</ul>							
+							
+					</div>
+
+				</div>
+				<div class="col-sm-6">
+					<ul>
+					<div class="payment-options">
+					<span>
+						<label><input type="checkbox"> Direct Bank Transfer</label>
+					</span>
+					<span>
+						<label><input type="checkbox"> Check Payment</label>
+					</span>
+					<span>
+						<label><input type="checkbox"> PayTm</label>
+					</span>
+				</ul>
+				</div>
+				<a class="btn btn-default check_out" href="checkout">Payment</a>
+			</div>
+			
+		</div>
+	</section> <!--/#cart_items-->
+
+	
+
+	<!--
+
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>-->
+</div>
