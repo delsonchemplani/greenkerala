@@ -13,9 +13,12 @@ angular.module('myKalahulluApp')
             deleteCartItem:function (id) {
                 var oldCart = cart;
                 cart = [];
-                angular.forEach(oldCart, function (oldCartItem) {
-                     if (oldCartItem.id !== id) cart.push(oldCartItem);
+                
+                angular.forEach(oldCart, function (oldCartItem) {                    
+                    console.log(oldCartItem)
+                     if (oldCartItem.itemCode !== id) cart.push(oldCartItem);
                 });
+                
                 localStorage.setItem('cart', JSON.stringify(cart));
             }
         }

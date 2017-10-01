@@ -15,6 +15,10 @@
 app.controller('ProductCtrl', ['$scope', '$rootScope','$filter','FirebaseService','cartService','Auth',function($scope, $rootScope,$filter,FirebaseService,cartService,Auth) {
 $scope.items=[];
 $scope.cart=[];
+if((localStorage.getItem('cart'))){              
+                $scope.cart=JSON.parse( localStorage.getItem('cart'));
+                $rootScope.cartSize= $scope.cart.length;
+            }
 $rootScope.test="121"
 $scope.filterItems=[];
  $scope.currentPage = 0;

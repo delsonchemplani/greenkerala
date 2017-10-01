@@ -22,21 +22,25 @@ app.controller('CartCtrl', ['$scope', '$rootScope','$filter','FirebaseService','
         "notes": { "address": "Hello World" }, 
         "theme": { "color": "#F37254" } 
       }; 
-   var rzp1 = new Razorpay(options); 
-     rzp1.open();
+      var rzp1 = new Razorpay(options); 
+      rzp1.open();
       e.preventDefault(); 
     } 
 
 
 
-$scope.cart=[];
+$rootScope.cart=[];
 $scope.orderItems=[];
 $scope.totalPrice=0;
  $scope.itemQuantity=1;
 $scope.getCartItems=function(){
           
-            $scope.cart=cartService.cartItems();
-            angular.forEach($scope.cart, function (cartItem) {
+            //$rootScope.cart=cartService.cartItems();
+            if((localStorage.getItem('cart'))){              
+                $rootScope.cart=JSON.parse( localStorage.getItem('cart'));
+                $rootScope.cartSize= $rootScope.cart.length;
+            }
+            angular.forEach($rootScope.cart, function (cartItem) {
                     $scope.orderItems.push({"itemId":cartItem.itemCode,
                                              "itemQuantity":1,
                                              "image":cartItem.images[0],
@@ -51,7 +55,10 @@ $scope.deletetCartItem=function(item){
     var index = $scope.orderItems.indexOf(item);
     $scope.orderItems.splice(index, 1);
     cartService.deleteCartItem(item.itemId);
-      $rootScope.cartSize= $scope.cart.length;
+       if((localStorage.getItem('cart'))){              
+                $rootScope.cart=JSON.parse( localStorage.getItem('cart'));
+                $rootScope.cartSize= $rootScope.cart.length;
+            }
     //$scope.getCartItems();
      $scope.calculateTotal();
 }
