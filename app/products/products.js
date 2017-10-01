@@ -26,6 +26,11 @@ $scope.addToCart=function(item){
             console.log('here');
            // alert(item.itemCode);
             cartService.addCartItem(item);
+            if((localStorage.getItem('cart'))){
+              alert('Item added to cart');
+             $scope.cart=JSON.parse( localStorage.getItem('cart'));
+              $rootScope.cartSize= $scope.cart.length;
+            }
     
     };
 

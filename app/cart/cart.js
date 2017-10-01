@@ -51,6 +51,7 @@ $scope.deletetCartItem=function(item){
     var index = $scope.orderItems.indexOf(item);
     $scope.orderItems.splice(index, 1);
     cartService.deleteCartItem(item.itemId);
+      $rootScope.cartSize= $scope.cart.length;
     //$scope.getCartItems();
      $scope.calculateTotal();
 }

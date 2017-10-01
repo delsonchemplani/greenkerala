@@ -8,6 +8,7 @@ angular.module('myKalahulluApp')
             },
             addCartItem:function (cartItem) {
                 cart.push(cartItem);
+                 localStorage.setItem('cart', JSON.stringify(cart));
             },
             deleteCartItem:function (id) {
                 var oldCart = cart;
@@ -15,6 +16,7 @@ angular.module('myKalahulluApp')
                 angular.forEach(oldCart, function (oldCartItem) {
                      if (oldCartItem.id !== id) cart.push(oldCartItem);
                 });
+                localStorage.setItem('cart', JSON.stringify(cart));
             }
         }
     });
