@@ -7,6 +7,28 @@
 // Home controller
 app.controller('CartCtrl', ['$scope', '$rootScope','$filter','FirebaseService','cartService','Auth',
     function($scope, $rootScope,$filter,FirebaseService,cartService,Auth) {
+
+
+//document.getElementById('rzp-button1').onclick = function(e){
+  $scope.payViaRazor = function(e){
+  var options = { "key": "rzp_test_l2uRR6MlppJyeS", 
+        "amount": $scope.totalPrice*100, // 2000 paise = INR 20 
+        "name": "Hirvy Fashions", 
+        "description": "Payment via Razorpay", 
+        "image": "../images/icon.jpeg", 
+        "handler": function (response){ console.log(response);alert(response.razorpay_payment_id); }, 
+        "prefill": { "name": "Harshil Mathur", 
+        "email": "harshil@razorpay.com" }, 
+        "notes": { "address": "Hello World" }, 
+        "theme": { "color": "#F37254" } 
+      }; 
+   var rzp1 = new Razorpay(options); 
+     rzp1.open();
+      e.preventDefault(); 
+    } 
+
+
+
 $scope.cart=[];
 $scope.orderItems=[];
 $scope.totalPrice=0;
