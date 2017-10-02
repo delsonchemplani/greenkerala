@@ -30,9 +30,9 @@ $scope.addToCart=function(item){
             console.log('here');
            // alert(item.itemCode);
             cartService.addCartItem(item);
-            if((localStorage.getItem('cart'))){
-              alert('Item added to cart');
-             $scope.cart=JSON.parse( localStorage.getItem('cart'));
+            if((localStorage.getItem('cart'))){              
+              $scope.cart=JSON.parse( localStorage.getItem('cart'));
+              //alert('here'+$scope.cart.length)
               $rootScope.cartSize= $scope.cart.length;
             }
     

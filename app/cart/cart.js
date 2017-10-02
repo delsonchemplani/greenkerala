@@ -29,18 +29,40 @@ app.controller('CartCtrl', ['$scope', '$rootScope','$filter','FirebaseService','
 
 
 
-$rootScope.cart=[];
+$scope.cart=[];
 $scope.orderItems=[];
 $scope.totalPrice=0;
  $scope.itemQuantity=1;
+
+ $scope.initDeliveryPanel=function(){  
+  if((localStorage.getItem('checkOutDetails'))){              
+              $scope.checkoutObj=JSON.parse( localStorage.getItem('checkOutDetails'));
+                
+        }
+  
+
+ };
+
+ $scope.showOrderSummary=function(checkoutObj){  
+  $('#collapse1').collapse('toggle');
+  $('#collapse2').collapse('toggle');
+   $scope.checkOutDetails=checkoutObj;
+   localStorage.setItem( 'checkOutDetails', JSON.stringify( $scope.checkOutDetails ) );
+
+ };
+ $scope.showPaymentPanel=function(checkoutObj){  
+  $('#collapse2').collapse('toggle');
+  $('#collapse3').collapse('toggle');
+ };
+
 $scope.getCartItems=function(){
           
-            //$rootScope.cart=cartService.cartItems();
+            //$scope.cart=cartService.cartItems();
             if((localStorage.getItem('cart'))){              
-                $rootScope.cart=JSON.parse( localStorage.getItem('cart'));
-                $rootScope.cartSize= $rootScope.cart.length;
+                $scope.cart=JSON.parse( localStorage.getItem('cart'));
+                $rootScope.cartSize= $scope.cart.length;
             }
-            angular.forEach($rootScope.cart, function (cartItem) {
+            angular.forEach($scope.cart, function (cartItem) {
                     $scope.orderItems.push({"itemId":cartItem.itemCode,
                                              "itemQuantity":1,
                                              "image":cartItem.images[0],
@@ -56,8 +78,9 @@ $scope.deletetCartItem=function(item){
     $scope.orderItems.splice(index, 1);
     cartService.deleteCartItem(item.itemId);
        if((localStorage.getItem('cart'))){              
-                $rootScope.cart=JSON.parse( localStorage.getItem('cart'));
-                $rootScope.cartSize= $rootScope.cart.length;
+                $scope.cart=JSON.parse( localStorage.getItem('cart'));
+                $rootScope.cartSize= $scope.cart.length;
+                $rootScope.$apply();
             }
     //$scope.getCartItems();
      $scope.calculateTotal();
