@@ -85,6 +85,8 @@
 								</div>
 							</div>
 						</div>
+						<br/>
+						<div ng-show="itemsLoaded" style="float:left;clear:both">
 						 <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
        						Previous  
     					</button>
@@ -92,6 +94,7 @@
     						<button ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
       						  Next
     					</button>
+    				</div>
 	<!-- 				<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">

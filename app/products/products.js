@@ -22,7 +22,7 @@ if((localStorage.getItem('cart'))){
 $rootScope.test="121"
 $scope.filterItems=[];
  $scope.currentPage = 0;
-    $scope.pageSize = 3;
+    $scope.pageSize = 6;
     //$scope.data = [];
     $scope.numberOfPages=0
 
@@ -104,6 +104,7 @@ $scope.occasionCheckBoxes = [
      var promise=FirebaseService.getItems().then ( function ( result ) {
       //  $scope.uId = result;
         console.log('Data retrieved'+result);
+        $scope.itemsLoaded=true;
         $scope.items=result;
         console.log('Data retrieved2'+$scope.items.length);
  		// $scope.numberOfPages=Math.ceil($scope.items.length/$scope.pageSize); 
