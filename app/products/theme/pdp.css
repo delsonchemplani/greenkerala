@@ -1,0 +1,14 @@
+.product-detailed-img-wrap{
+	padding-left: 100px;
+}
+
+.sizebox{
+	/*background-color: grey;*/
+    width: 18px; 
+    /*height:40px;  */
+   padding: 2px;
+    margin: 2px;
+   /* border-radius: 50%;*/
+     background-color: lightgrey;
+    /*border-style:groove*/;
+}

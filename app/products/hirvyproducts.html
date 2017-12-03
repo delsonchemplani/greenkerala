@@ -49,20 +49,18 @@
 					
 							<div class="product-image-wrapper">
 								<div class="single-products">
+									
 										<div class="productinfo text-center">
-											<img ng-src="{{item.images[0]}}" alt="" height="320" />
+											<img ng-src="{{item.images[0]}}" alt="" height="320"  />
 											<h2>{{item.price}}</h2>
 											<p>{{item.name}}</p>
 											   <h6> Size :<b ng-repeat="size in item.sizes">{{size}}{{$last ? '' : ', '}}</b></h6>
 											<a href="/cart" class="btn btn-default add-to-cart" ng-click="addToCart(item)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										
+											<a class="btn btn-default add-to-cart" ng-click="showItemDetails(item)" >View Details</a>
 										</div>										
 								</div>
-								<!-- <div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div> -->
+								
 							</div>
 						</div>
 

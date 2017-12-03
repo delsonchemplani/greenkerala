@@ -40,6 +40,10 @@ angular.module('myKalahulluApp', [
         templateUrl: 'products/hirvyproducts.html',
         controller: 'ProductCtrl',
         requireLogin: false
+    }).when('/pdp', {
+        templateUrl: 'products/productpage.html',
+        controller: 'ProductCtrl',
+        requireLogin: false
     }).when('/cart', {
         templateUrl: 'cart/cart.html',
         controller: 'CartCtrl',
@@ -65,6 +69,7 @@ angular.module('myKalahulluApp', [
 .run(['$rootScope', '$location','$route', 'Auth', function ($rootScope, $location,$route, Auth) {
   Auth.init();
    Auth.login("admin@gmail.com","admin1234");
+   
     $rootScope.$on('$routeChangeStart', function (event) {    
      // console.log($route.routes); 
      console.log($location.path());

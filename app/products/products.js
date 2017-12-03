@@ -12,7 +12,8 @@
 
  
 // Home controller
-app.controller('ProductCtrl', ['$scope', '$rootScope','$filter','FirebaseService','cartService','Auth',function($scope, $rootScope,$filter,FirebaseService,cartService,Auth) {
+app.controller('ProductCtrl', ['$location','$scope', '$rootScope','$filter','FirebaseService','cartService','Auth','itemService'
+  ,function($location,$scope, $rootScope,$filter,FirebaseService,cartService,Auth,itemService) {
 $scope.items=[];
 $scope.cart=[];
 if((localStorage.getItem('cart'))){              
@@ -20,11 +21,17 @@ if((localStorage.getItem('cart'))){
                 $rootScope.cartSize= $scope.cart.length;
             }
 $rootScope.test="121"
+
 $scope.filterItems=[];
  $scope.currentPage = 0;
     $scope.pageSize = 6;
     //$scope.data = [];
     $scope.numberOfPages=0
+
+$scope.initProductPage=function(){
+$scope.selectedItem=itemService.selectedItemDetails();
+//alert($scope.selectedItem.price);
+};
 
 $scope.addToCart=function(item){
             console.log('here');
@@ -35,6 +42,14 @@ $scope.addToCart=function(item){
               //alert('here'+$scope.cart.length)
               $rootScope.cartSize= $scope.cart.length;
             }
+    
+    };
+
+$scope.showItemDetails=function(item){
+  itemService.setSelectedItem(item);
+            $scope.selectedItem=item;
+             $location.url('/pdp');
+            //alert('hi'+item.price);
     
     };
 

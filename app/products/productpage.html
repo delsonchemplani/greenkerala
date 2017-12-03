@@ -1,0 +1,73 @@
+    <link href="products/theme/pdp.css" rel="stylesheet">
+    <link href="products/theme/font-awesome.min.css" rel="stylesheet">
+    <link href="products/theme/prettyPhoto.css" rel="stylesheet">
+    <link href="products/theme/price-range.css" rel="stylesheet">
+    <link href="products/theme/animate.css" rel="stylesheet">
+    <link href="products/theme/main.css" rel="stylesheet">
+    <link href="products/theme/responsive.css" rel="stylesheet">
+<div style="padding-top: 40px;" class="container" ng-init="initProductPage()">
+      
+            <div class="row">
+                <div class="col-xs-6 col-md-5">
+                    <div class="row">
+                        <div class="product-detailed-img-wrap">
+                            <img ng-src="{{selectedItem.images[0]}}" alt="" height="400">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 ">
+                    <div class="panel-group">
+                        <h4 >{{selectedItem.name}}</h4>
+                        <p class="price">
+                                                         
+                            <span>Rs </span><span> {{selectedItem.price}}</span>
+                            
+                        </p>
+                        <div >
+                            
+                                <p>
+                                    Availability: 
+                                     <span class="stock" style="color:green;"> In Stock</span>                                                                    
+                                </p>
+                          
+
+                            
+                                 <p> Size :<span ng-repeat="size in selectedItem.sizes"><a><span class="sizebox">{{size}}</span></a>{{$last ? '' : '  '}}</span> </p>
+                                     
+                            <p> 
+                                 <a class="btn btn-default add-to-cart" href="/cart" ng-click="addToCart(selectedItem);"  role="button"><i class="fa fa-shopping-cart"></i>ADD TO CART</a>
+                                                           
+                           </p>
+                                                            <p>Product Code :
+                                <span>{{selectedItem.itemCode}}</span></p>
+                              
+                       
+  
+                        <div > <p><div ><span>Specifications</span></div></p>
+
+                        <div><div>
+                   <ul>    
+                         <li>Fit Slim</li>
+                         <li>Fabric Cotton</li>
+                         <li>Sleeve Full Sleeve</li>
+                         <li>Pattern Checkered</li>
+                         <li>Suitable For Western Wear</li>
+                    </ul></div></div>
+                    </div>
+
+                 </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top:10px;">
+                <div class="col-lg-12">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+                                              
+                                            </ul>
+                                             Item description and all details
+                  
+                </div>
+            </div>
+       
+    </div>
