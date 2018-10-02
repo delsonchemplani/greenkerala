@@ -10,7 +10,7 @@ app.controller('CartCtrl', ['$scope', '$rootScope','$filter','FirebaseService','
 
 
 //document.getElementById('rzp-button1').onclick = function(e){
-  $scope.payViaRazor = function(e){
+  $scope.submitYourRequest = function(e){
   var options = { "key": "rzp_test_l2uRR6MlppJyeS", 
         "amount": $scope.totalPrice*100, // 2000 paise = INR 20 
         "name": "Hirvy Fashions", 
@@ -43,14 +43,14 @@ $scope.totalPrice=0;
 
  };
 
- $scope.showOrderSummary=function(checkoutObj){  
+ $scope.showAddressPanel=function(checkoutObj){  
   $('#collapse1').collapse('toggle');
   $('#collapse2').collapse('toggle');
    $scope.checkOutDetails=checkoutObj;
    localStorage.setItem( 'checkOutDetails', JSON.stringify( $scope.checkOutDetails ) );
 
  };
- $scope.showPaymentPanel=function(checkoutObj){  
+ $scope.showSummaryPanel=function(checkoutObj){  
   $('#collapse2').collapse('toggle');
   $('#collapse3').collapse('toggle');
  };

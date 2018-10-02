@@ -9,49 +9,21 @@
 			<div class="row">
 				<div class="col-sm-3">
 
- <div class="list-group panel">
-    <a class="list-group-item list-group-item strong text-center" style="background: white;" data-toggle="collapse"> FILTER BY</a>
-    <a href="#cat1" class="list-group-item list-group-item-success strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-photo"></i> Category <i class="fa fa-caret-down"></i></a>
-    <div class="collapse list-group-submenu" id="cat1">
-      <a href="#" class="list-group-item"><input type="checkbox"> Shirts</a>
 
-    </div> 
-    <a href="#occa" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-book"></i> Occasion <i class="fa fa-caret-down"></i></a>
-    <div class="collapse list-group-submenu" id="occa">
-       <li class="list-group-item" ng-repeat="chk in occasionCheckBoxes"><input type="checkbox" ng-model="chk.val" id="chk.label" />
-            <label>{{chk.label}}</label></li>
- 
-    </div>
-    <a href="#price" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-language"></i> Price <i class="fa fa-caret-down"></i></a>
-    <div class="collapse list-group-submenu" id="price">
-      <a href="#" class="list-group-item"><input type="checkbox">  1000 and below</a>
-      <a href="#" class="list-group-item"><input type="checkbox"> 1000-1499 </a>
-      <a href="#" class="list-group-item"><input type="checkbox">  above 1499</a>
-      
-    </div>
-    <a href="#sizes" class="list-group-item list-group-item strong" style="background: #f7f7f7;" data-toggle="collapse" data-parent="#MainMenu"><i class="fa fa-cubes"></i>  Sizes <i class="fa fa-caret-down"></i></a>
-    <div class="collapse list-group-submenu" id="sizes">
-
-      <li class="list-group-item" ng-repeat="chk in sizeCheckBoxes"><input type="checkbox" ng-model="chk.val" id="chk.label" />
-            <label>{{chk.label}}</label></li>
-     
-    </div>
-      <a class="list-group-item list-group-item strong text-center" style=" color: white;" data-toggle="collapse"><button type="button" class="btn btn-success btn-sm" ng-click="searchForItems()">SEARCH</button> </a>
-  </div>
 
 		
 				</div>
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"  ><!--features_items-->
-						<h2 class="title text-center">New Arrivals in Men's section</h2>
+						
 						<div ng-show="allResult" class="col-sm-4" ng-repeat="item in items|toArray | startFrom:currentPage*pageSize | limitTo:pageSize">
 					
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									
 										<div class="productinfo text-center">
-											<img ng-src="{{item.images[0]}}" alt="" height="320"  />
+											<img ng-src="{{item.image}}" alt="" height="320"  />
 											<h2>{{item.price}}</h2>
 											<p>{{item.name}}</p>
 											   <h6> Size :<b ng-repeat="size in item.sizes">{{size}}{{$last ? '' : ', '}}</b></h6>

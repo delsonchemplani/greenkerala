@@ -37,7 +37,7 @@ angular.module('myKalahulluApp', [
         controller: 'ProductCtrl',
         requireLogin: false
     }).when('/products', {
-        templateUrl: 'products/hirvyproducts.html',
+        templateUrl: 'products/pricing.html',
         controller: 'ProductCtrl',
         requireLogin: false
     }).when('/pdp', {
@@ -48,8 +48,8 @@ angular.module('myKalahulluApp', [
         templateUrl: 'cart/cart.html',
         controller: 'CartCtrl',
         requireLogin: false
-    }).when('/checkout', {
-        templateUrl: 'chout/checkout.html',
+    }).when('/pickup', {
+        templateUrl: 'pickup/pickup.html',
         controller: 'CartCtrl',
         requireLogin: false
     }).when('/base/admin', {

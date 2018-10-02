@@ -1,0 +1,134 @@
+     <div class="container"> 
+   
+
+    <link href="products/theme/font-awesome.min.css" rel="stylesheet">
+    <link href="products/theme/prettyPhoto.css" rel="stylesheet">
+    <link href="products/theme/price-range.css" rel="stylesheet">
+    <link href="products/theme/animate.css" rel="stylesheet">
+	<link href="products/theme/main.css" rel="stylesheet">
+	<link href="products/theme/responsive.css" rel="stylesheet">
+
+
+
+	<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="/home">Home</a></li>
+				  <li class="active">Pick up</li>
+				</ol>
+			</div><!--/breadcrums-->
+<div class="panel-group" id="accordion" ng-init="requestObj={}">
+			<!-- <div class="step-one"> -->
+				<!-- <h2 class="heading">DELIVERY ADDRESS</h2> -->
+
+	<div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">SELL YOUR SCRAPS HERE</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">
+        	
+				<form name="mobileForm" class="form-inline">
+						<input type="text" placeholder="Mobile Phone *" ng-model="requestObj.mobileNo" required pattern="[789][0-9]{9}">
+					
+					
+					
+				
+				
+						<button type="submit" class="btn btn-default check_out" ng-click="mobileForm.$valid && showAddressPanel(requestObj)"  >CONTINUE </button>
+						</form> 
+			
+        </div>
+      </div>
+    </div>
+
+<div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">PICK UP ADDRESS</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">
+
+        	<div class="shopper-informations">
+				<div class="row">
+			
+					<div class="col-sm-8 clearfix">
+						<div class="bill-to" ng-init="initDeliveryPanel()">
+							<p>Collect From</p>
+							<div class="form-one" >
+								<form class="form-inline" name="myform">									
+									<input type="text" placeholder="Full Name *" ng-model="requestObj.name" required  pattern="[A-Za-z-0-9]+\s[A-Za-z-'0-9]+">
+									<input type="email" placeholder="Email*" ng-model="requestObj.email" required>					
+									<input type="text" placeholder="Address *" ng-model="requestObj.address.line1" required>
+									<input type="text" placeholder="Zip / Postal Code *" ng-model="requestObj.address.pinCode" required pattern="[0-9]{6}" title="Six digit zip code" >				
+									<input type="text" placeholder="City" ng-model="requestObj.address.city">							
+									<input type="text" placeholder="State" ng-model="requestObj.address.state">
+									
+									<button type="submit" class="btn btn-default check_out" ng-click="myform.$valid &&showSummaryPanel(requestObj)"  >SAVE PICK UP ADDRESS </button> 
+								</form>
+							</div>						
+						</div>
+					</div>								
+				</div>
+			</div>
+
+
+        </div>
+      </div>
+    </div>
+		<!-- 
+		ORDER SUMMARY -->
+
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">SUMMARY</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">
+        	<div class="col-sm-6">
+				
+
+				</div>
+				<div class="col-sm-6">
+				
+				
+					<button class="btn btn-default check_out" id="rzp-button1" ng-click="myform.$valid && submitYourRequest()">Submit Pickup Request</button> 
+				</div>
+
+        </div>
+      </div>
+  </div>
+
+	
+
+
+			<!-- <div class="review-payment">
+				<h2>Review & Payment</h2>
+			</div> -->
+
+			
+				
+			
+		</div>
+	</div>
+<!-- 	end of panel
+ -->	</section> <!--/#cart_items-->
+
+	
+
+	<!--
+
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>-->
+</div>

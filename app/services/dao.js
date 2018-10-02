@@ -29,7 +29,7 @@
     var deferred = $q.defer();
     console.log('started');
 
-     var storageItemsRef = firebase.database().ref("items");
+     var storageItemsRef = firebase.database().ref("scrapitems");
      //var itemsRef=storageItemsRef.child("222");
         // deferred.resolve(itemsRef);
      storageItemsRef.on('value', function(snapshot) {
