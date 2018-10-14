@@ -113,14 +113,21 @@ $scope.occasionCheckBoxes = [
 
  $scope.getItems=function(){
  	//logging in 
+
  	console.log('here');
  	$scope.allResult=true;
     $scope.filterResult=false;
      var promise=FirebaseService.getItems().then ( function ( result ) {
       //  $scope.uId = result;
         console.log('Data retrieved'+result);
+         result.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        $scope.items.push(doc.data());
+    });
+
         $scope.itemsLoaded=true;
-        $scope.items=result;
+        //$scope.items=result;
         console.log('Data retrieved2'+$scope.items.length);
  		// $scope.numberOfPages=Math.ceil($scope.items.length/$scope.pageSize); 
   
@@ -128,6 +135,8 @@ $scope.occasionCheckBoxes = [
      /*	if(!$scope.$$phase) {
      	 $scope.$apply(function () {*/
              var totalItems= $filter('toArray')($scope.items);
+             $scope.items=totalItems;
+             console.log('Data retrieved dhd'+totalItems.length);
              $scope.numberOfPages=Math.ceil(totalItems.length/$scope.pageSize);
               //alert(result.length);
              //alert($scope.numberOfPages);

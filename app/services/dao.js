@@ -28,15 +28,24 @@
    function getItems() {
     var deferred = $q.defer();
     console.log('started');
+    db.collection("scrapitems").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+    });
 
-     var storageItemsRef = firebase.database().ref("scrapitems");
+    deferred.resolve(querySnapshot);
+});
+
+
+   /*  var storageItemsRef = firebase.app().database().ref("scrapitems");
      //var itemsRef=storageItemsRef.child("222");
         // deferred.resolve(itemsRef);
      storageItemsRef.on('value', function(snapshot) {
       deferred.resolve(snapshot.val());
     });
            
-
+*/
     return deferred.promise;
   }
 //getting orderItems from cart

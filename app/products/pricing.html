@@ -7,64 +7,31 @@
 	<link href="products/theme/responsive.css" rel="stylesheet">
 <div class="container" ng-init="getItems()">
 			<div class="row">
-				<div class="col-sm-3">
-
-
-
-		
+				
 				</div>
 				
-				<div class="col-sm-9 padding-right">
+				<div class="col-sm-12 padding-right">
 					<div class="features_items"  ><!--features_items-->
 						
-						<div ng-show="allResult" class="col-sm-4" ng-repeat="item in items|toArray | startFrom:currentPage*pageSize | limitTo:pageSize">
+						<div ng-show="allResult" class="col-sm-2" ng-repeat="item in items|toArray | startFrom:currentPage*pageSize | limitTo:pageSize">
 					
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									
 										<div class="productinfo text-center">
-											<img ng-src="{{item.image}}" alt="" height="320"  />
+											<img ng-src="{{item.image}}" alt="" height="200"   />
 											<h2>{{item.price}}</h2>
 											<p>{{item.name}}</p>
-											   <h6> Size :<b ng-repeat="size in item.sizes">{{size}}{{$last ? '' : ', '}}</b></h6>
-											<a href="/cart" class="btn btn-default add-to-cart" ng-click="addToCart(item)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										
-											<a class="btn btn-default add-to-cart" ng-click="showItemDetails(item)" >View Details</a>
-										</div>										
+											
+																				</div>										
 								</div>
 								
 							</div>
 						</div>
 
-						<div ng-show="filterResult" class="col-sm-4" ng-repeat="item in filterItems|toArray | startFrom:currentPage*pageSize | limitTo:pageSize">
 					
-							<div class="product-image-wrapper">
-								<div class="single-products">
-										<div class="productinfo text-center">
-											<img ng-src="{{item.images[0]}}" alt="" />
-											<h2>{{item.price}}</h2>
-											<p>{{item.name}}</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>										
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
 						<br/>
-						<div ng-show="itemsLoaded" style="float:left;clear:both">
-						 <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-       						Previous  
-    					</button>
-    					{{currentPage+1}}/{{numberOfPages}}
-    						<button ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1">
-      						  Next
-    					</button>
-    				</div>
+						
 	<!-- 				<div class="col-sm-4">
 							<div class="product-image-wrapper">
 								<div class="single-products">

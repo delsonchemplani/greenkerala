@@ -10,7 +10,7 @@ var userInfo;
     console.log('started');
     firebase.auth().signInWithEmailAndPassword(userName, password).then(function(result) {
      // 
-     var tokenID = firebase.auth().currentUser.getToken(true);
+     var tokenID = firebase.auth().currentUser.getIdToken(true);
     // alert(accessToken);
       userInfo = {
          accessToken: tokenID,
